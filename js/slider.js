@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", function(){
 // I hope this over-commenting helps. Let's do this!
 // Let's use the 'active' variable to let us know when we're using it
 let active = false;
@@ -41,7 +42,7 @@ function scrollIt(x){
 
 // Let's set our opening state based off the width, 
 // we want to show a bit of both images so the user can see what's going on
-scrollIt(150);
+scrollIt(window.innerWidth/2);
 
 // And finally let's repeat the process for touch events
 // first our middle scroller...
@@ -56,4 +57,9 @@ document.body.addEventListener('touchend',function(){
 document.body.addEventListener('touchcancel',function(){
   active = false;
   document.querySelector('.scroller').classList.remove('scrolling');
+});
+window.addEventListener('resize', function(){
+	scrollIt(window.innerWidth/2);
+	
+})
 });

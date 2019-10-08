@@ -2,23 +2,64 @@
 #page{
   width:100%;
   height:100%;
+  overflow:hidden;
   position:absolute;
 }
 
-/* Our normalize css */
 *{
   margin:0;
   box-sizing: border-box;
 }
 
-/* Our wrapper */
-.wrapper{
-  width: 1920px;
-  height: 850px;
-  overflow:hidden;
+.note p{
+	font-family: Rubik black, Arial Black,Arial Bold,Gadget,sans-serif; 
+	text-transform: uppercase;
+	font-size:1.5em
+}
+nav{
+	position:absolute;
+	z-index: 10;
+}
+nav img{
+	margin:40px;
+	margin-left:120px;
+	width:220px;
+	height:auto;
+	
+}
+.note{
+	border: 3px #fff solid;
+	background-color:#000;
+	color: #fff;
+	z-index:10;
+	text-align: center;
+	position: absolute;
+	padding: 9px 20px;
+	right: 0;
+	margin: 0 auto;
+	box-shadow:0 0 0 4px hsl(0, 0%, 0%);
+	bottom: 7%;
+
+}
+@media screen and (min-width: 1500px){
+	.note{
+		width:1500px;
+		left: 0;
+	}
+}
+@media screen and (max-width: 1500px){
+	.note{
+	margin: 0 30px 0 30px ;
+}
 }
 
-/* Our image information */
+.wrapper{
+  width: 100%;
+  height: 850px;
+  overflow:hidden;
+  z-index: -1;
+}
+
 .before,
 .after {
   width:100%;
@@ -71,16 +112,22 @@
   height:100%;
   padding:5px;
 }
-
+.scroller:after{
+	box-shadow: 0 -3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5)
+}
+.scroller:before{
+	box-shadow: 0 3px 0 white, 0px 0px 12px rgba(51, 51, 51, 0.5)
+}
 .scroller:before,
 .scroller:after{
   content:" ";
   display: block;
-  width: 7px;
-  height: 850px;
+  width: 3px;
+  height: 1000px;
   position: absolute;
+
   left: 50%;
-  margin-left: -3.5px;
+  margin-left: -1.5px;
   z-index: 30;
   transition:0.1s;
 }
@@ -91,9 +138,8 @@
   bottom:100%;
 }
 
-/* If you want to cahnge the colors, make sure you change the fill in the svgs to match */
 .scroller{
-  border: 5px solid #fff;
+  border: 3px solid #fff;
 }
 .scroller:before,
 .scroller:after{
