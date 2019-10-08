@@ -10,6 +10,11 @@ document.querySelector('.scroller').addEventListener('mousedown',function(){
   // Add our scrolling class so the scroller has full opacity while active
   document.querySelector('.scroller').classList.add('scrolling');
 });
+document.querySelector('.scroller').addEventListener('touchstart',function(){
+  active = true;
+  // Add our scrolling class so the scroller has full opacity while active
+  document.querySelector('.scroller').classList.add('scrolling');
+});
 // We also want to watch the body for changes to the state,
 // like moving around and releasing the click
 // so let's set up our event listeners
@@ -17,13 +22,28 @@ document.body.addEventListener('mouseup',function(){
   active = false;
   document.querySelector('.scroller').classList.remove('scrolling');
 });
+document.body.addEventListener('touchend',function(){
+  active = false;
+  document.querySelector('.scroller').classList.remove('scrolling');
+});
+
 document.body.addEventListener('mouseleave',function(){
   active = false;
   document.querySelector('.scroller').classList.remove('scrolling');
 });
 
+
 // Let's figure out where their mouse is at
 document.body.addEventListener('mousemove',function(e){
+  if (!active) return;
+  // Their mouse is here...
+  let x = e.pageX;
+  // but we want it relative to our wrapper
+  x -= document.querySelector('.wrapper').getBoundingClientRect().left;
+  // Okay let's change our state
+  scrollIt(x);
+});
+document.body.addEventListener('touchmove',function(e){
   if (!active) return;
   // Their mouse is here...
   let x = e.pageX;
