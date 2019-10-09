@@ -42,8 +42,6 @@
 
 p{
 	font-family: Rubik, Arial, sans-serif;
-	
-	
 }
 *{
   margin:0;
@@ -80,15 +78,7 @@ nav img{
 	transform: translateY(-130%);
 
 }
-.sources{
-	background-color:#000;
-	font-size:14px;
-	color: #fff;
-	z-index:11;
-	position: relative;
-	padding: 3px 3px;
-	right: 0;
-}
+
 @media screen and (min-width: 1500px){
 	.note{
 		width:1500px;
