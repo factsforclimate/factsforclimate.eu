@@ -5,11 +5,8 @@
   overflow:hidden;
 }
 
-
-
 @media (orientation: landscape){
 	main .content{
-		
 		width: 1150px;
 		margin: 50px auto;
 	}
@@ -18,7 +15,8 @@
 	}
 	.before,
 	.after {
-		100%;
+		height:850px;
+		width:100%;
 	}
 	.wrapper{
 		height:850px;
@@ -26,7 +24,7 @@
 }
 @media (orientation: portrait){
 	#page{
-		height:50%;
+		height:576px;
 		width:100%;
 	}
 	main{
@@ -79,8 +77,17 @@ nav img{
 	right: 0;
 	margin: 0 auto;
 	box-shadow:0 0 0 4px hsl(0, 0%, 0%);
-	bottom: 7%;
+	transform: translateY(-130%);
 
+}
+.sources{
+	background-color:#000;
+	font-size:14px;
+	color: #fff;
+	z-index:11;
+	position: relative;
+	padding: 3px 3px;
+	right: 0;
 }
 @media screen and (min-width: 1500px){
 	.note{
