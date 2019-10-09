@@ -25,40 +25,25 @@ document.body.addEventListener('mouseleave',function(){
 });
 
 
-// Let's figure out where their mouse is at
 document.body.addEventListener('mousemove',function(e){
-	console.log("Hello world!");
   if (!active) return;
-  // Their mouse is here...
   let x = e.pageX;
-  // but we want it relative to our wrapper
   x -= document.querySelector('.wrapper').getBoundingClientRect().left;
-  // Okay let's change our state
   scrollIt(x);
 });
 document.body.addEventListener('touchmove',function(e){
   if (!active) return;
-  // Their mouse is here...
   let x = e.touches[0].pageX;
-  // but we want it relative to our wrapper
   x -= document.querySelector('.wrapper').getBoundingClientRect().left;
-  // Okay let's change our state
   scrollIt(x);
 });
 
-// Let's use this function
 function scrollIt(x){
     let transform = Math.max(0,(Math.min(x,document.querySelector('.wrapper').offsetWidth)));
     document.querySelector('.after').style.width = transform+"px";
     document.querySelector('.scroller').style.left = transform-25+"px";
 }
-
-// Let's set our opening state based off the width, 
-// we want to show a bit of both images so the user can see what's going on
 scrollIt(window.innerWidth/2);
-
-// And finally let's repeat the process for touch events
-// first our middle scroller...
 document.querySelector('.scroller').addEventListener('touchstart',function(){
   active = true;
   document.querySelector('.scroller').classList.add('scrolling');
@@ -75,4 +60,35 @@ window.addEventListener('resize', function(){
 	scrollIt(window.innerWidth/2);
 	
 })
+
+	$next = 1;
+	$current = 0;
+	$interval = 4500;
+	$fadeTime = 1000;	
+	$imgNum = 7;	
+ 
+	nextFadeIn();
+
+	function nextFadeIn(){
+		$('.before img').eq($current).delay($interval).fadeOut($fadeTime)
+		.end().eq($next).delay($interval).hide().fadeIn(($fadeTime*2), nextFadeIn);
+		    
+		if($next < $imgNum-1){ $next++; } else { $next = 0;}
+		if($current < $imgNum-1){ $current++; } else { $current =0; }
+	};
+	
+	$next2 = 1;		
+	$current2 = 0;	
+	$interval2 = 4500;	
+	$fadeTime2 = 1000;	
+	$imgNum = 7;
+	
+	next2FadeIn2();
+	function next2FadeIn2(){
+		$('.after img').eq($current2).delay($interval2).fadeOut($fadeTime2)
+		.end().eq($next2).delay($interval2).hide().fadeIn(($fadeTime*2), next2FadeIn2);
+		    
+		if($next2 < $imgNum-1){ $next2++; } else { $next2 = 0;}
+		if($current2 < $imgNum-1){ $current2++; } else { $current2 =0; }
+	};
 });
