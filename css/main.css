@@ -8,7 +8,7 @@
 @media (orientation: landscape){
 	main .content{
 		width: 1150px;
-		margin: 50px auto;
+		margin: 0 auto;
 	}
 	#page{
 		position:relative;
@@ -113,6 +113,13 @@ nav img{
 
 .content-image{
   height:100%;
+}
+
+.content{
+	background-color:black;
+	color: white;
+	
+	
 }
 
 .after{
